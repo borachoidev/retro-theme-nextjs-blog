@@ -1,0 +1,21 @@
+.header {
+  border-bottom: 1px solid var(--color-foreground);
+  padding: 16px 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  max-width: 1000px;
+  text-shadow: var(--text-shadow);
+}
+.title {
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+.nav > :last-child {
+  margin-right: 0;
+}

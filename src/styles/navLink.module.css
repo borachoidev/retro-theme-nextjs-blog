@@ -1,0 +1,14 @@
+.link {
+  color: var(--color-background);
+  margin-right: 32px;
+  font-weight: 700;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover,
+  &.active {
+    color: var(--color-secondary);
+  }
+}
