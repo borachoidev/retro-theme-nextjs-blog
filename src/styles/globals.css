@@ -1,9 +1,66 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+:root {
+  /*font size*/
+  --font-5xl: 2rem; /*h1*/
+  --font-4xl: 1.75rem; /*h2*/
+  --font-3xl: 1.5rem; /*h3*/
+  --font-2xl: 1.25rem; /*h4*/
+  --font-lg: 1.125rem; /*h5*/
+  --font-md: 1rem; /*text*/
+  --font-sm: 0.875rem;
+  --font-xs: 0.75rem;
+
+  /*font weight*/
+  --font-bold: 700;
+  --font-normal: 400;
+  --font-light: 300;
+
+  /*font line height*/
+  --leading-relaxed: 1.75;
+  --leading-normal: 1.5;
+
+  /*spacing*/
+  --space: 8px;
+
+  /*color*/
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-primary: #ff59d1;
+  --color-secondary: #ffc500;
+  --color-tertiary: #e8f3ff;
+  --color-shadow: #000000;
+
+  /*effect*/
+  --text-shadow: -1px 0 var(--color-shadow), 0 -1px var(--color-shadow),
+    1px 0 var(--color-shadow), 0 1px var(--color-shadow),
+    1px 1px var(--color-shadow), -1px -1px var(--color-shadow),
+    -1px 1px var(--color-shadow), 1px -1px var(--color-shadow),
+    4px 4px var(--color-shadow);
+  --text-border: -1px 0 var(--color-shadow), 0 -1px var(--color-shadow),
+    1px 0 var(--color-shadow), 0 1px var(--color-shadow);
+  --container-shadow: 4px 4px var(--color-shadow);
+}
+
+[data-theme='dark'] {
+  /*color*/
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-primary: #62e988;
+  --color-secondary: #c75fec;
+  --color-tertiary: #1c1c1d;
+  --color-shadow: #787878;
+}
+
 html,
 body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: var(--font-light);
+  font-size: var(--font-md);
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 
 a {
@@ -13,4 +70,6 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
