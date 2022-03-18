@@ -21,7 +21,6 @@ const getFiles = (type: string) => {
   const prefixPaths = path.join(process.cwd(), 'contents', type)
   const files = getAllFiles(prefixPaths)
 
-  console.log(files)
   return files.map(file =>
     file.slice(prefixPaths.length + 1).replace(/\\/g, '/')
   )
