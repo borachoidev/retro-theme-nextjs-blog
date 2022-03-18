@@ -14,6 +14,7 @@
 .title {
   cursor: pointer;
   color: var(--color-primary);
+  font-size: var(--font-5xl);
 }
 
 .nav > :last-child {
