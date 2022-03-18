@@ -1,0 +1,9 @@
+
+.tag{
+    border: '1px var(--color-shadow) solid',
+    padding: '8px 16px',
+    margin-right: '24px',
+    box-shadow: 'var(--container-shadow)',
+    background-color: 'var(--color-secondary)',
+    
+}
