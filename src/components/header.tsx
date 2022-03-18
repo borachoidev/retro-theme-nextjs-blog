@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import React, { Fragment } from 'react'
-import headerNavLinks from '../data/headerNavLinks'
-import { siteMetadata } from '../data/siteMetadata'
-import styles from '../styles/header.module.css'
+import headerNavLinks from 'src/data/headerNavLinks'
+import { siteMetadata } from 'src/data/siteMetadata'
+import styles from '@styles/components/header.module.css'
 import { NavLink } from './navLink'
 
 const Header = () => {

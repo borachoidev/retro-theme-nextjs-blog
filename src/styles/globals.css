@@ -11,7 +11,7 @@
   --font-sm: 0.875rem;
   --font-xs: 0.75rem;
 
-  /*font weight*/
+  /* font weight */
   --font-bold: 700;
   --font-normal: 400;
   --font-light: 300;
@@ -21,7 +21,7 @@
   --leading-normal: 1.5;
 
   /*spacing*/
-  --space: 8px;
+  --spacing: 8px;
 
   /*color*/
   --color-background: #ffffff;
@@ -58,7 +58,6 @@ body {
   color: var(--color-foreground);
   padding: 0;
   margin: 0;
-  font-weight: var(--font-light);
   font-size: var(--font-md);
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }

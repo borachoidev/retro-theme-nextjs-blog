@@ -1,0 +1,8 @@
+.container {
+  border: var(--color-shadow) 2px solid;
+  background-color: var(--color-tertiary);
+  max-width: 800px;
+  height: auto;
+  margin: auto;
+  padding: 45px 90px;
+}

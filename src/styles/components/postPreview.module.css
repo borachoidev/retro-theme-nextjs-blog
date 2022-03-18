@@ -1,0 +1,44 @@
+.container {
+  cursor: pointer;
+  & > * {
+    margin-bottom: var(--spacing);
+  }
+  & :last-child {
+    margin-bottom: 0;
+  }
+  &:hover {
+    .title {
+      color: var(--color-primary);
+      text-shadow: var(--text-shadow);
+    }
+    .description {
+      font-weight: var(--font-normal);
+    }
+    .date {
+      font-weight: var(--font-normal);
+    }
+  }
+}
+.date {
+  font-size: var(--font-xs);
+  font-weight: var(--font-light);
+}
+
+.title {
+  font-size: var(--font-3xl);
+  font-weight: var(--font-bold);
+}
+
+.description {
+  font-weight: var(--font-light);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.tagContainer {
+  & > * {
+    margin-right: calc(var(--spacing) * 1.5);
+  }
+}

@@ -1,0 +1,23 @@
+.tag {
+  border: 1px var(--color-shadow) solid;
+  padding: 8px 16px;
+  font-size: var(--font-sm);
+
+  box-shadow: var(--container-shadow);
+  background-color: var(--color-background);
+  cursor: pointer;
+  display: inline-block;
+
+  &.active {
+    background-color: var(--color-secondary);
+  }
+
+  &.small {
+    padding: calc(var(--spacing) / 2) var(--spacing);
+    font-size: var(--font-xs);
+  }
+}
+
+.text {
+  font-weight: var(--font-bold);
+}

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import React from 'react'
-import styles from '../styles/navLink.module.css'
+import styles from '@styles/components/navLink.module.css'
 
 interface NavLinkProps
   extends Omit<React.HTMLProps<HTMLAnchorElement>, 'href'> {
