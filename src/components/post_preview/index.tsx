@@ -1,7 +1,7 @@
-import styles from '@styles/components/postPreview.module.css'
+import styles from './post_preview.module.css'
 import { dateFormat } from '@utils/date'
 import { BlogFrontMatter } from 'src/type'
-import Tag from './tag'
+import Tag from '../tag'
 
 const PostPreviewItem = ({ post }: { post: BlogFrontMatter }) => {
   const { tag, date, title, description } = post

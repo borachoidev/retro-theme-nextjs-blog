@@ -3,12 +3,12 @@ import path from 'path'
 import matter from 'gray-matter'
 import { getFiles } from '@utils/files'
 import { PostPreview } from 'src/type'
-import ContentContainer from '@components/contentContainer'
+import ContentContainer from '@components/content_container'
 import Tag from '@components/tag'
-import PostPreivew from '@components/postPreview'
+import PostPreivew from '@components/post_preview'
+import styles from '@styles/postList.module.css'
 
 const PostLists = ({ posts }: { posts: PostPreview[] }) => {
-  console.log(posts)
   return (
     <main>
       <div
@@ -27,9 +27,13 @@ const PostLists = ({ posts }: { posts: PostPreview[] }) => {
       </div>
 
       <ContentContainer>
-        {posts.map((post, index) => (
-          <PostPreivew post={post.frontmatter} key={index} />
-        ))}
+        <ul className={styles.postsWrapper}>
+          {posts.map((post, index) => (
+            <li>
+              <PostPreivew post={post.frontmatter} key={index} />
+            </li>
+          ))}
+        </ul>
       </ContentContainer>
     </main>
   )

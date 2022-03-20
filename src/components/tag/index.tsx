@@ -1,4 +1,4 @@
-import styles from '@styles/components/tag.module.css'
+import styles from './tag.module.css'
 import { CSSProperties } from 'react'
 
 interface TagProps {

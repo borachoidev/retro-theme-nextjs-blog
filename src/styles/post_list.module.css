@@ -1,0 +1,9 @@
+.postsWrapper {
+  & > * {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+
+  & :last-child {
+    margin-bottom: 0;
+  }
+}
