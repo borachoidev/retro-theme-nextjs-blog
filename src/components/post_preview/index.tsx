@@ -4,15 +4,15 @@ import { BlogFrontMatter } from 'src/type'
 import Tag from '../tag'
 
 const PostPreviewItem = ({ post }: { post: BlogFrontMatter }) => {
-  const { tag, date, title, description } = post
+  const { tags, date, title, description } = post
 
-  const tags = typeof tag === 'string' ? [tag] : tag
+  const tag = typeof tags === 'string' ? [tags] : tags
   return (
     <article className={styles.container}>
-      <span className={styles.date}> {dateFormat(date)}</span>
+      <span className={styles.date}> {date}</span>
       <h3 className={styles.title}>{title}</h3>
       <div className={styles.tagContainer}>
-        {tags.map(text => (
+        {tag.map(text => (
           <Tag text={text} key={text} small />
         ))}
       </div>

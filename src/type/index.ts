@@ -18,4 +18,4 @@ export type PostPreview = {
   frontmatter: BlogFrontMatter
 }
 
-export type PostType = 'blog' | '_about'
+export type ContentType = 'blog' | '_about'

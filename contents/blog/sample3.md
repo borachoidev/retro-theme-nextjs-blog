@@ -1,7 +1,7 @@
 ---
 title: 'it nec ipsum. Donec magna'
 date: '2022-03-01 13:16:46'
-tag: ['sample', 'theme', '블로그']
+tags: ['sample', 'theme', '블로그']
 description: 'Nullam auctor rhoncus porta. Sed nibh tortor, rhoncus eu ligula non, dictum semper sem.'
 draft: false
 ---

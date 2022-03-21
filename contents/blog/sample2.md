@@ -1,7 +1,7 @@
 ---
 title: 'venenatis nibh eget arcu ph'
 date: '2022-03-08 13:16:46'
-tag: ['typescript', 'sample']
+tags: ['typescript', 'sample']
 description: ' Mauris venenatis nibh eget arcu pharetra, egestas aliquet lorem ullamcorper. Donec in consectetur enim.dui in condimentum luctus, quam ligula consectetur enim, sit amet dictum sem elit nec ipsum.'
 draft: false
 ---

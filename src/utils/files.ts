@@ -3,7 +3,9 @@ import matter from 'gray-matter'
 import path from 'path'
 import slug from 'github-slugger'
 
-import { PostType } from 'src/type/index'
+import { ContentType } from 'src/type/index'
+import { dateSortDesc } from './commons'
+import { dateFormat } from './date'
 
 const root = process.cwd()
 const { slug: kebabCase } = slug
@@ -35,7 +37,7 @@ export const getAllFiles = (dir: string): string[] => {
  * @returns string[] - file names array without root path
  */
 
-export const getFiles = (type: PostType) => {
+export const getFiles = (type: ContentType) => {
   const prefixPaths = path.join(root, 'contents', type)
 
   const files = getAllFiles(prefixPaths)
@@ -49,10 +51,11 @@ export const getFiles = (type: PostType) => {
  * @param type :'blog'| '_about' - contents type
  * @returns string[] - tags array
  */
-export async function getAllTags(type: PostType) {
+export async function getAllTags(type: ContentType) {
   const files = await getFiles(type)
 
   let tags: string[] = []
+  const tagie = {}
   files.forEach(file => {
     const source = fs.readFileSync(
       path.join(root, 'contents', type, file),
@@ -70,4 +73,27 @@ export async function getAllTags(type: PostType) {
   })
 
   return tags
+}
+
+export async function getPostFrontmatters(type: ContentType) {
+  const files = getFiles(type)
+
+  const posts = files.map(filename => {
+    const slug = filename.replace('.md', '')
+
+    const markdownWithMeta = fs.readFileSync(
+      path.join(process.cwd(), 'contents', type, filename),
+      'utf-8'
+    )
+    const { data } = matter(markdownWithMeta)
+
+    return {
+      slug,
+      frontmatter: { ...data, date: dateFormat(data.date) },
+    }
+  })
+
+  return posts.sort((a, b) =>
+    dateSortDesc(a.frontmatter.date, b.frontmatter.date)
+  )
 }

@@ -1,7 +1,7 @@
 ---
 title: Introducing Multi-part Posts with Nested Routing
 date: '2022-02-13 13:16:46'
-tag: ['multi-author', 'next-js', 'feature', 'sample']
+tags: ['multi author', 'next-js', 'feature', 'sample']
 description: 'Learn how to build a Next.js blog with MDX and Contentlayer!'
 draft: false
 ---
