@@ -1,7 +1,7 @@
 export type BlogFrontMatter = {
   title: string
   date: string
-  tag: string | string[]
+  tags: string | string[]
   description: string
   draft: boolean
 }
@@ -17,3 +17,5 @@ export type PostPreview = {
   slug: string
   frontmatter: BlogFrontMatter
 }
+
+export type PostType = 'blog' | '_about'

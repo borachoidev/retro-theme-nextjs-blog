@@ -19,7 +19,8 @@
       "@utils/*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
 
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "postcss.config.js"],

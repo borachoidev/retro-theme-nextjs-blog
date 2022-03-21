@@ -1,12 +1,14 @@
 import fs, { readdirSync } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { getFiles } from '@utils/files'
+import { getAllTags, getFiles } from '@utils/files'
 import { PostPreview } from 'src/type'
 import ContentContainer from '@components/content_container'
 import Tag from '@components/tag'
 import PostPreivew from '@components/post_preview'
-import styles from '@styles/postList.module.css'
+import styles from './post_list.module.css'
+import { dateFormat } from '@utils/date'
+import { dateSortDesc } from '@utils/commons'
 
 const PostLists = ({ posts }: { posts: PostPreview[] }) => {
   return (
@@ -29,8 +31,8 @@ const PostLists = ({ posts }: { posts: PostPreview[] }) => {
       <ContentContainer>
         <ul className={styles.postsWrapper}>
           {posts.map((post, index) => (
-            <li>
-              <PostPreivew post={post.frontmatter} key={index} />
+            <li key={index}>
+              <PostPreivew post={post.frontmatter} />
             </li>
           ))}
         </ul>
@@ -51,12 +53,16 @@ export const getStaticProps = async () => {
       path.join(process.cwd(), 'contents', 'blog', filename),
       'utf-8'
     )
-
     const { data: frontmatter } = matter(markdownWithMeta)
 
-    return { slug, frontmatter }
+    return {
+      slug,
+      frontmatter: { ...frontmatter, date: dateFormat(frontmatter.date) },
+    }
   })
-
+  posts.sort((a, b) => dateSortDesc(a.frontmatter.date, b.frontmatter.date))
+  const tags = await getAllTags('blog')
+  console.log(tags)
   return {
     props: { posts },
   }
