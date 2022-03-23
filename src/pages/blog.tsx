@@ -9,15 +9,12 @@ interface PostListProps {
   posts: PostPreview[]
   tags: string[]
 }
-const PostLists = ({ posts }: PostListProps) => (
-  <ul>
-    {posts.map((post, index) => (
-      <li key={index}>
-        <PostPreivew post={post.frontmatter} />
-      </li>
-    ))}
-  </ul>
-)
+const PostLists = ({ posts }: PostListProps) =>
+  posts.map((post, index) => (
+    <li key={index}>
+      <PostPreivew post={post} />
+    </li>
+  ))
 
 export default PostLists
 

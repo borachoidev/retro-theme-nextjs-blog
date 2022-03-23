@@ -1,23 +1,31 @@
 import styles from './post_preview.module.css'
-import { dateFormat } from '@utils/date'
-import { BlogFrontMatter } from 'src/type'
+import { PostPreview } from 'src/type'
 import Tag from '../tag'
-
-const PostPreviewItem = ({ post }: { post: BlogFrontMatter }) => {
-  const { tags, date, title, description } = post
+import Link from 'next/link'
+interface PostPreviewItemProps {
+  post: PostPreview
+}
+const PostPreviewItem = ({
+  post: { frontmatter, slug },
+}: PostPreviewItemProps) => {
+  const { tags, date, title, description } = frontmatter
 
   const tag = typeof tags === 'string' ? [tags] : tags
   return (
-    <article className={styles.container}>
-      <span className={styles.date}> {date}</span>
-      <h3 className={styles.title}>{title}</h3>
-      <div className={styles.tagContainer}>
-        {tag.map(text => (
-          <Tag text={text} key={text} small />
-        ))}
-      </div>
-      <p className={styles.description}>{description}</p>
-    </article>
+    <Link href={`/blog/${slug}`}>
+      <a>
+        <article className={styles.container}>
+          <span className={styles.date}> {date}</span>
+          <h3 className={styles.title}>{title}</h3>
+          <div className={styles.tagContainer}>
+            {tag.map(text => (
+              <Tag text={text} key={text} small />
+            ))}
+          </div>
+          <p className={styles.description}>{description}</p>
+        </article>
+      </a>
+    </Link>
   )
 }
 

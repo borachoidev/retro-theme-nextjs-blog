@@ -12,7 +12,9 @@ const ListLayout = ({ children, selected, tags }: ListLayoutProps) => {
   return (
     <>
       <TagContainer categories={tags} selected={selected} />
-      <ContentContainer>{children}</ContentContainer>
+      <ContentContainer>
+        <ul className={styles.postsWrapper}>{children}</ul>
+      </ContentContainer>
     </>
   )
 }

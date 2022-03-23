@@ -7,17 +7,12 @@ import PostPreivew from '@components/post_preview'
 import { ReactElement } from 'react'
 import BaseLayout from 'src/layouts/base'
 
-const TagList = ({ posts }: { posts: PostPreview[] }) => {
-  return (
-    <ul>
-      {posts.map((post, index) => (
-        <li key={index}>
-          <PostPreivew post={post.frontmatter} />
-        </li>
-      ))}
-    </ul>
-  )
-}
+const TagList = ({ posts }: { posts: PostPreview[] }) =>
+  posts.map((post, index) => (
+    <li key={index}>
+      <PostPreivew post={post} />
+    </li>
+  ))
 
 export default TagList
 
