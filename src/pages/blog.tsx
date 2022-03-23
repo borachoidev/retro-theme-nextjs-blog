@@ -1,51 +1,23 @@
 import { getAllTags, getPostFrontmatters } from '@utils/files'
 import { PostPreview } from 'src/type'
-import ContentContainer from '@components/content_container'
-import Tag from '@components/tag'
+import ListLayout from 'src/layouts/list'
+import { ReactElement } from 'react'
 import PostPreivew from '@components/post_preview'
-import styles from './post_list.module.css'
-import Link from 'next/link'
+import BaseLayout from 'src/layouts/base'
 
-const PostLists = ({
-  posts,
-  tags,
-}: {
+interface PostListProps {
   posts: PostPreview[]
   tags: string[]
-}) => {
-  return (
-    <main>
-      <div
-        style={{
-          display: 'flex',
-
-          justifyContent: 'center',
-          padding: '24px 0px',
-        }}
-      >
-        <Tag text="ALL" active={true} />
-
-        {tags.map((tag, i) => (
-          <Link href={`/tag/${tag}`} key={i}>
-            <a>
-              <Tag text={tag} />
-            </a>
-          </Link>
-        ))}
-      </div>
-
-      <ContentContainer>
-        <ul className={styles.postsWrapper}>
-          {posts.map((post, index) => (
-            <li key={index}>
-              <PostPreivew post={post.frontmatter} />
-            </li>
-          ))}
-        </ul>
-      </ContentContainer>
-    </main>
-  )
 }
+const PostLists = ({ posts }: PostListProps) => (
+  <ul>
+    {posts.map((post, index) => (
+      <li key={index}>
+        <PostPreivew post={post.frontmatter} />
+      </li>
+    ))}
+  </ul>
+)
 
 export default PostLists
 
@@ -56,4 +28,15 @@ export const getStaticProps = async () => {
   return {
     props: { posts, tags },
   }
+}
+
+PostLists.getLayout = function getLayout(page: ReactElement) {
+  const { tags } = page.props
+  return (
+    <BaseLayout>
+      <ListLayout tags={tags} selected={'ALL'}>
+        {page}
+      </ListLayout>
+    </BaseLayout>
+  )
 }

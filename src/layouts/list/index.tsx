@@ -11,11 +11,8 @@ interface ListLayoutProps {
 const ListLayout = ({ children, selected, tags }: ListLayoutProps) => {
   return (
     <>
-      <Header />
-      <main className={styles.section}>
-        <TagContainer categories={tags} selected={selected} />
-        <ContentContainer>{children}</ContentContainer>
-      </main>
+      <TagContainer categories={tags} selected={selected} />
+      <ContentContainer>{children}</ContentContainer>
     </>
   )
 }
