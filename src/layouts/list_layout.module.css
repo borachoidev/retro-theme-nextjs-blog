@@ -7,3 +7,11 @@
     margin-bottom: 0;
   }
 }
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+  margin: auto;
+}

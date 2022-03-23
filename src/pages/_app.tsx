@@ -1,14 +1,21 @@
-import Header from '@components/header'
 import '@styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
+import { NextPage } from 'next'
+import { ReactElement, ReactNode } from 'react'
 
-function MyApp({ Component, pageProps }: AppProps) {
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout || (page => page)
   return (
-    <ThemeProvider>
-      <Header></Header>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ThemeProvider>{getLayout(<Component {...pageProps} />)}</ThemeProvider>
   )
 }
 
