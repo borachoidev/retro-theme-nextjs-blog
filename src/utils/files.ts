@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import path from 'path'
 import slug from 'github-slugger'
 
-import { ContentType } from 'src/type/index'
+import { BlogFrontMatter, ContentType } from 'src/type/index'
 import { dateSortDesc } from './commons'
 import { dateFormat } from './date'
 
@@ -89,7 +89,10 @@ export async function getPostFrontmatters(type: ContentType) {
 
     return {
       slug,
-      frontmatter: { ...data, date: dateFormat(data.date) },
+      frontmatter: {
+        ...(data as BlogFrontMatter),
+        date: dateFormat(data.date),
+      },
     }
   })
 
