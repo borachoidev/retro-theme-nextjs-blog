@@ -21,3 +21,7 @@
 .text {
   font-weight: var(--font-bold);
 }
+
+.item {
+  display: inline-block;
+}

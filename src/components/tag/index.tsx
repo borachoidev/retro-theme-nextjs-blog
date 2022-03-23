@@ -1,30 +1,45 @@
 import styles from './tag.module.css'
-import { CSSProperties } from 'react'
+import { CSSProperties, RefObject, useCallback, useRef } from 'react'
+import { kebabCase } from '@utils/commons'
+import Router from 'next/router'
 
 interface TagProps {
   text: string
   active?: boolean
   small?: boolean
   style?: CSSProperties
+  scrollToCenter?: (tagRef: RefObject<HTMLLIElement>) => void
 }
-const Tag = ({ text, active = false, small = false, style }: TagProps) => {
-  const tag = text.replace(/\s+/g, '-').toUpperCase()
-  if (small)
-    return (
-      <div
-        className={[styles.tag, styles.small, active ? styles.active : ''].join(
-          ' '
-        )}
-        style={style}
-      >
-        <span className={styles.text}> {tag}</span>
-      </div>
-    )
+const Tag = ({
+  text,
+  active = false,
+  small = false,
+  style,
+  scrollToCenter,
+}: TagProps) => {
+  const tagRef = useRef<HTMLLIElement>(null)
+
+  const onClick = useCallback(() => {
+    if (!scrollToCenter) return
+    scrollToCenter(tagRef)
+    const pathname = text === 'ALL' ? '/blog' : `/tag/${text}`
+    Router.push(pathname)
+    console.log(tagRef.current)
+  }, [tagRef])
+
+  const tag = kebabCase(text, true)
+  const defaultStyle = [
+    styles.tag,
+    active ? styles.active : '',
+    small ? styles.small : '',
+  ].join(' ')
 
   return (
-    <div className={[styles.tag, active ? styles.active : ''].join(' ')}>
-      <span className={styles.text}> {tag}</span>
-    </div>
+    <li className={styles.item} ref={tagRef} onClick={onClick}>
+      <div className={defaultStyle} style={style}>
+        <span className={styles.text}>{tag}</span>
+      </div>
+    </li>
   )
 }
 
