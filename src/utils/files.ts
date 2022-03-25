@@ -100,3 +100,19 @@ export async function getPostFrontmatters(type: ContentType) {
     dateSortDesc(a.frontmatter.date, b.frontmatter.date)
   )
 }
+
+export async function getPostBySlug(slug: string) {
+  const markdownWithMeta = fs.readFileSync(
+    path.join(process.cwd(), 'contents', slug),
+    'utf-8'
+  )
+  const { data, content } = matter(markdownWithMeta)
+
+  return {
+    frontmatter: {
+      ...(data as BlogFrontMatter),
+      date: dateFormat(data.date),
+    },
+    content,
+  }
+}
