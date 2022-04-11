@@ -10,3 +10,7 @@ export function dateSortDesc(a: string, b: string) {
 export const kebabCase = (text: string, uppercase?: boolean) => {
   return uppercase ? slugger(text).toUpperCase() : slugger(text)
 }
+
+export function formatSlug(slug: string) {
+  return slug.replace(/\.(mdx|md)/, '')
+}
