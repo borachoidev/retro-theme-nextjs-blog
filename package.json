@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-module-resolver": "^5.0.0",
     "date-fns": "^2.28.0",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.3",
